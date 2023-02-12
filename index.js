@@ -35,6 +35,7 @@ const Users = client.db('genesys-softwares').collection('users');
 
 // * routes
 app.get('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.send('Hello World!');
 });
 
