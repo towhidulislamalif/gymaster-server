@@ -8,11 +8,7 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 // ? middleware
-app.use(
-  cors({
-    origin: ['http://localhost:8080', 'https://gymaster-app.onrender.com'],
-  })
-);
+app.use(cors());
 app.use(express.json());
 
 // ? Database connection
