@@ -27,9 +27,9 @@ const client = new MongoClient(uri, {
 const run = async () => {
   try {
     await client.connect();
-    console.log(chalk.bgGreenBright('Database connection established'));
+    // console.log(chalk.bgGreenBright('Database connection established'));
   } catch (err) {
-    console.log(chalk.bgRedBright(err.name, err.message));
+    // console.log(chalk.bgRedBright(err.name, err.message));
   }
 };
 
@@ -68,26 +68,7 @@ app.put('/users/:email', async (req, res) => {
       $set: user,
     };
     const result = await Users.updateOne(filter, updatedDoc, options);
-    console.log(result);
-    res.send({
-      success: true,
-      data: result,
-    });
-  } catch (err) {
-    res.send({
-      success: false,
-      message: err.message,
-    });
-  }
-});
-
-// delete to database
-app.delete('/users/:id', async (req, res) => {
-  try {
-    const id = req.params.id;
-    const query = { _id: ObjectId(id) };
-    const result = await Users.deleteOne(query);
-
+    // console.log(result);
     res.send({
       success: true,
       data: result,
